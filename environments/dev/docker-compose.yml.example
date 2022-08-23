@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     user: node
     image: curso-rn-react:0.1
-    command: "npm start"
+    command: bash -c "npm install && npm start"
     restart: unless-stopped
     container_name: 'frontend-curso-react'
     working_dir: /app
