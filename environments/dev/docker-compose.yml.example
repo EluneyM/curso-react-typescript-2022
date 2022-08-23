@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  frontend:
+    build:
+      context: ./environments/dev/frontend
+      dockerfile: Dockerfile
+    user: node
+    image: curso-rn-react:0.1
+    command: "npm start"
+    restart: unless-stopped
+    container_name: 'frontend-curso-react'
+    working_dir: /app
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src/sitio/frontend/curso-rn-react:/app
+    networks:
+      - curso-react-network
+
+networks:
+  curso-react-network:
+    driver: bridge
