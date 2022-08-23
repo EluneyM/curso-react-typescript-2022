@@ -23,6 +23,16 @@ La aplicación esta disponible en el puerto 3000.
 http://localhost:3000/
 
 ## Comando útiles
+Instalar dependencias:
+```shell
+docker-compose exec frontend npm i
+```
+
+Entrar al contenedor:
+```shell
+docker-compose exec frontend bash
+```
+
 Listar y ver estado de los contenedores:
 ```shell
 docker-compose ps
