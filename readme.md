@@ -2,7 +2,8 @@
 Entorno dockerizado para desarrollo, solo frontend disponible, versión de node `16.15.1`.
 
 ## Requisitos
-Para poder correr la aplicación es necesario docker, docker-compose y un interprete de bash para correr el script de incialización.
+Para poder correr la aplicación es necesario [docker](https://docs.docker.com/get-docker/), [docker-compose](https://docs.docker.com/compose/install/) y un interprete de bash para correr el script de incialización.
+
 
 ## Primer despliegue
 Ejecutar el script `init.sh`, seleccionar el ambiente de `desarrollo`, el script está escrito en bash y se puede ejecutar como el ejemplo:
