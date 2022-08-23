@@ -15,11 +15,19 @@ Ejecutar el siguiente comando la primara vez para levantar el proyecto buildeand
 ```shell
 docker-compose up -d --build
 ```
+> En algunas versiones el comando se escribe sin guión
+> `docker compose up -d --build`
+
 La aplicación esta disponible en el puerto 3000.
 
 http://localhost:3000/
 
 ## Comando útiles
+Listar y ver estado de los contenedores:
+```shell
+docker-compose ps
+```
+
 Ejecutar los contenedores y dejar libre la consola, la opción `-d` (detach) evita que la consola quede escuchando los logs de los contenedores:
 ```shell
 docker-compose up -d
