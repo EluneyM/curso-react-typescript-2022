@@ -1,6 +1,24 @@
 version: "3.3"
 
 services:
+
+  backend:
+    build:
+      context: ./environments/dev/backend
+      dockerfile: Dockerfile
+    user: node
+    image: backend-curso-rn-react:0.1
+    command: bash -c "npm install && npm start"
+    restart: unless-stopped
+    container_name: 'backend-curso-react'
+    working_dir: /app
+    ports:
+      - 8800:8800
+    volumes:
+      - ./src/sitio/backend:/app
+    networks:
+      - curso-react-network
+
   frontend:
     build:
       context: ./environments/dev/frontend
@@ -15,6 +33,23 @@ services:
       - 3000:3000
     volumes:
       - ./src/sitio/frontend/curso-rn-react:/app
+    networks:
+      - curso-react-network
+
+  db:
+    image: mariadb:10.7.4
+    restart: unless-stopped
+    tty: true
+    container_name: 'db-curso-react'
+    ports:
+      - 8830:3306
+    environment:
+      MARIADB_DATABASE: "${DB_DATABASE}"
+      MARIADB_USER: "${DB_USER}"
+      MARIADB_PASSWORD: "${DB_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
     networks:
       - curso-react-network
 
